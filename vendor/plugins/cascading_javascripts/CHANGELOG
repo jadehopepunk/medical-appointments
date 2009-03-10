@@ -1,0 +1,7 @@
+[REVISION 20060717]
+
+[CHANGED] Placed code into module named after the class to which the mixin will be applied.
+
+[REVISION 20060523]
+
+[NEW] Tests!

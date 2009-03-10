@@ -1,0 +1,10 @@
+if @saved
+  page.insert_html :bottom, "appointments_provider_#{@appointment.healthcare_provider.id}", :partial => 'appointment', :object => @appointment, :locals => {:expanded => false}
+  page << "$('#{dom_id(@appointment)}').setAttribute('duration', #{@appointment.duration});" 
+  page << "setInitialAppointmentSize($('#{dom_id(@appointment)}'))"
+  page.hide dom_id(@appointment)
+  page.call "RedBox.close"
+  page.visual_effect :appear, dom_id(@appointment), :duration => 0.3, :queue => 'end'
+else
+  page.replace 'appointment_form', :partial => 'new_form'
+end

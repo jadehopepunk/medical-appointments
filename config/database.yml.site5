@@ -1,0 +1,15 @@
+
+development:
+  adapter: mysql
+  database: geektrib_appointments
+  username: geektrib_hherb
+  password: bootlace
+  host: localhost
+
+
+production:
+  adapter: mysql
+  database: geektrib_appointments
+  username: geektrib_hherb
+  password: bootlace
+  host: localhost

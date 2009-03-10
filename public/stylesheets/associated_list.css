@@ -1,0 +1,48 @@
+.associations_list_wrapper
+{
+	float: left;
+	padding: 2px;
+}
+
+.associations_list_container
+{
+  font-size: 10pt;
+  margin: 0px;
+  padding: 0px;
+  border: 2px inset #CCC;
+}
+
+.associations_list
+{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  background-color: #000;
+}
+
+.associations_list li
+{
+  background-color: #FFF;
+  margin: 0;
+  border-bottom: 1px solid black;
+  padding: 4px;
+}
+
+.associations_list li:hover
+{
+  background-color: #99F;  
+}
+.associations_list a
+{
+  color: red;
+  font-weight: bold;
+}
+
+.association_list_modifier
+{
+  padding: 3px 0 6px 0;
+}
+
+.association_list_modifier select
+{
+}

@@ -1,0 +1,15 @@
+<% for slot in column[:slots] %>
+	<%= link_to_remote_redbox(format_time(slot.start_time), 
+		{
+			:url => {:controller => 'appointments', :action => 'new', :year => @date.year, :month => @date.mon, :day => @date.day, :minute => slot.start_minute, :provider_id => column[:provider].to_param}
+		},
+		{
+			:class => 'slot' + (slot == column[:slots].last ? ' last' : ''),
+			:id => "#{dom_id(column[:provider])}_slot_#{slot.start_minute}"
+		}) %>
+	<% apply_behaviour "##{dom_id(column[:provider])}_slot_#{slot.start_minute}", "this.setAttribute('duration', #{slot.duration}); setDefaultSlotSize(this)" %>				
+<% end %>
+
+<div id="appointments_<%= dom_id(column[:provider]) %>" style="overflow: visible; z-index: 0;">
+	<%= render :partial => 'appointments', :object => column[:appointments], :locals => {:provider => column[:provider]} %>
+</div>

@@ -1,0 +1,65 @@
+
+div.resizerWrapper
+{
+	position: relative;
+	width: 370px;	
+}
+* html div.resizerWrapper
+{
+	margin-left: 0;
+}
+
+div.resizerWrapper textarea
+{
+	width: 100%;
+}
+
+#authForm div.resizerWrapper #contents
+{
+	width:100% !important;
+}
+
+div.resizerWrapper a.resizeBigger,
+div.resizerWrapper a.resizeSmaller,
+div.resizerWrapper a.resizeBiggerFont,
+div.resizerWrapper a.resizeSmallerFont
+{
+	position: absolute;
+	top: 5px;
+	right: -25px;
+	width: 12px;
+	height: 14px;
+}
+
+div.resizerWrapper a.resizeBigger span,
+div.resizerWrapper a.resizeSmaller span,
+div.resizerWrapper a.resizeBiggerFont span,
+div.resizerWrapper a.resizeSmallerFont span
+{
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
+
+div.resizerWrapper a.resizeBigger
+{
+	background-image: url(/bundles/textarea/images/areaMore.png);
+}
+
+div.resizerWrapper a.resizeSmaller
+{
+	top: 24px;
+	background-image: url(/bundles/textarea/images/areaLess.png);
+}
+
+div.resizerWrapper a.resizeBiggerFont
+{
+	top: 43px;
+	background-image: url(/bundles/textarea/images/fontUp.png);
+}
+
+div.resizerWrapper a.resizeSmallerFont
+{
+	top: 61px;
+	background-image: url(/bundles/textarea/images/fontDown.png);
+}

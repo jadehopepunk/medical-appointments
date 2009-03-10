@@ -1,0 +1,7 @@
+[REVISION 20060726]
+
+[NEW] First attempt at supporting paths for modules. Ie. an action of A::B::C#action would check for: a.css; a/b.css; a/b/c.css; and finally a/b/c/action.css.
+
+[REVISION 20060717]
+
+[CHANGED] Placed code into module named after the class to which the mixin will be applied.

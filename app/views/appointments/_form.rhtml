@@ -1,0 +1,54 @@
+<%= error_messages_for 'appointment' %>
+
+<div class="field odd">
+	<label for="appointment[patient_id]">Patient</label>
+	<%= text_field_with_auto_complete 'appointment', 'patient_name', {}, {:url => {:controller => 'patients', :action => 'auto_complete_for_patient_name' }, :with => "'patient[name]=' + $('appointment_patient_name').value"} %>
+	<div class="clear"></div>
+</div>
+
+<div class="field">
+	<label for="appointment[appointment_state_id]">State</label>
+	<%= collection_select 'appointment', 'appointment_state_id', AppointmentState.find(:all, :order => 'name'), 'id', 'name', :class => 'input' %>
+	<div class="clear"></div>
+</div>
+
+<div class="field odd">
+	<label for="appointment[categories]">Categories</label>
+	<div class="input">
+		<%= associated_list 'appointment', 'categories' %>
+	</div>
+	<div class="clear"></div>
+</div>
+
+<div class="field">
+	<label for="appointment[duration]">Duration</label>
+	<div class="input">
+		Consultation Type <%= collection_select 'appointment', 'appointment_type_id', @appointment.healthcare_provider.appointment_types, 'id', 'name' %>
+		<span class="divider">or</span>
+		<%= text_field 'appointment', 'duration_override', {:class => 'duration'} %> minutes
+	</div>
+	<div class="clear"></div>
+</div>
+
+<div class="field odd">
+	<label for="appointment[healthcare_provider_id]">Healthcare Provider</label>
+	<%= collection_select 'appointment', 'healthcare_provider_id', HealthcareProvider.find(:all, :order => 'name'), 'id', 'name', {}, :class => 'input' %>
+	<div class="clear"></div>
+</div>
+
+<div class="field">
+	<label for="appointment[start_time]">Date</label>
+	<div class="input">
+		<%= datetime_select 'appointment', 'start_time' %>
+	</div>
+	<div class="clear"></div>
+</div>
+
+<div class="field odd">
+	<label for="appointment[comment]">Comments</label>
+	<div class="input">
+		<%= text_area 'appointment', 'comment' %>
+	</div>
+	<div class="clear"></div>
+</div>
+<%= apply_behaviour '#appointment_patient_name', 'this.focus()', :external => false %>

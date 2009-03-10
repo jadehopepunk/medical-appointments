@@ -1,0 +1,82 @@
+<% require_bundle :dynarch_calendar %>
+<div class="cal_header">
+	<div class="cal_links">
+		<%= link_to "Today", day_url(Date.today), :class => 'today' %> <span class="pipe">|</span>
+		<%= link_to "Jump To...", "#", :class => 'jump_to', :id => 'jump_to' %>
+		
+		<input type="text" id="calendar_data" name="calendar_data" style="display: none;" /> 
+		
+		<script type="text/javascript"> 
+			function redirectOnSelect(calendar, date) { 
+				calendar.hide(); 
+				if (calendar.dateClicked) { 
+					window.location = '/appointments/index/' + $('calendar_data').value;
+				}
+				return true;				
+			}; 
+
+			Calendar.setup( 
+			{ 
+				inputField : "calendar_data", // ID of the input field 
+				ifFormat : "%Y/%m/%d", // the date format 
+				button : "jump_to", // ID of the button 
+				onClose : redirectOnSelect
+			} 
+			); 
+		</script>		
+		
+		
+	</div>
+	<div class="cal_heading">
+		<%= link_to " &lt;&lt;", day_url(@date.to_time.last_month.to_date), :class => 'last_month' %>
+		<%= link_to " &gt;&gt;", day_url(@date.to_time.next_month.to_date), :class => 'next_month' %>
+		<%= link_to " &lt; ", day_url(@date - 1), :class => 'yesterday' %>
+		<%= link_to " &gt; ", day_url(@date + 1), :class => 'tomorrow' %>
+		<h2><%= @date.to_formatted_s :long %></h2>	
+	</div>
+</div>
+
+<div id="day">
+	<div class="header">
+		<div class="times_header">&nbsp;</div>
+		
+		<% for column in @columns %>
+			<% @provider = column[:provider] %>
+			<div class="column_header">
+				<%= collection_select('provider', 'id', @providers, 'id', 'name', {}, :id => "provider_selector_#{column[:index]}") %>
+				<% apply_behaviour "#provider_selector_#{column[:index]}:change", 
+					remote_function(
+						:url => {:controller => 'appointments', :action => 'index_for_provider', :year => @date.year, :month => @date.mon, :day => @date.day},
+						:with => "'provider_id=' + this.value",
+						:update => "column_#{column[:index]}",
+						:before => visual_effect(:fade, "provider_selector_#{column[:index]}", :duration => 0.2, :to => 0.2),
+						:complete => visual_effect(:appear, "provider_selector_#{column[:index]}", :duration => 0.2)
+						)
+				%>
+			</div>
+		<% end %>
+		
+	</div>
+	
+	<div id="times">
+		<% for time in @times %>
+			<div class="hour<%= ' last' if time == @times.last %>">
+				<div class="half_hour first_half_hour">
+					<span><%= format_time time %></span>
+				</div>
+				<div class="half_hour second_half_hour">
+					&nbsp;						
+				</div>
+			</div>
+		<% end %>
+	</div>
+	
+	<% index = 5 %>
+	<% for column in @columns %>	
+		<div id="column_<%= column[:index] %>" class="column" style="z-index: <%= index.to_s %>">
+			<%= render :partial => 'column', :object => column %>
+		</div>
+		<% index = index - 1 %>
+	<% end %>
+	
+</div>

@@ -1,0 +1,262 @@
+
+#day {
+  width: 1010px;
+  overflow: auto;
+}
+
+div.column {
+  border: 2px solid #99F;
+  margin-left: 2px;
+  width: 175px;
+  float: left;
+  position: relative;
+  overflow: visible;
+}
+
+div.column a.slot
+{
+  display: block;
+  background-color: #CCF;
+  color: #CCF;
+  border-bottom: 1px solid #FFF;
+  text-align: center;
+}
+
+div.column a.slot:hover
+{
+  background-color: #BBF;
+  color: #66F;
+  text-decoration: none;
+}
+
+#times {
+  width: 100px;
+  float: left;
+  background-color: #EEE;
+  border: 2px solid #AAA;
+}
+
+#times div.hour
+{
+  text-align: right;
+  border-bottom: 1px solid #FFF;
+}
+
+#times div.hour div.first_half_hour
+{
+  margin-bottom: 1px;
+}
+
+#times div.hour span
+{
+  display: block;
+  padding: 5px 5px 0 0;
+}
+
+div.column a.last, #times div.last
+{
+  border-bottom: 0;
+}
+
+div.half_hour
+{
+  height: 29px;
+}
+
+.header {
+  margin-bottom: 2px;
+  width: 1010px;
+  overflow: hidden;
+}
+
+.header .times_header {
+  width: 100px;
+  float: left;
+  border: 2px solid #FFF;
+}
+
+.header .column_header {
+  width: 175px;
+  float: left;  
+  background-color: #99F;
+  border: 2px solid #66F;
+  margin-left: 2px;
+}
+
+.column_header select {
+  width: 171px;
+  margin: 2px;
+}
+
+ul.appointments_for_column {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: visible;
+  width: 300px;
+}
+
+li.appointment {
+  position: absolute;
+  display: block;
+  width: 171px;
+  overflow: hidden;
+  margin-left: 1px;
+  border: 1px solid #F93;
+  z-index: 10;
+}
+
+.appointment .patient {
+  display: block;
+  padding: 0px 2px;
+}
+
+.expanded_appointment .patient {
+  font-weight: bold;
+  padding: 4px 0 0 4px;
+}
+
+.appointment .details {
+  position: relative;
+}
+
+.appointment .details .links {
+  background-color: #FFF;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  margin: 4px 0 2px 0;
+}
+
+.appointment .details .links a
+{
+  line-height: 22px;
+  padding-left: 25px;
+  height: 22px;
+  margin: 2px 0;
+  display: block;
+  width: 50px;
+  margin-right: 5px;
+  margin-left: 3px;
+  vertical-align: middle;
+  float: left;
+  background-position: top left;
+  background-repeat: no-repeat;
+}
+
+.appointment .details .links a:hover
+{
+  background-color: #CCC;
+}
+
+.appointment .details .links a.edit {
+ background-image: url('../../images/icons/edit.png');
+ width: 40px;
+}
+
+.appointment .details .links a.delete {
+ background-image: url('../../images/icons/delete.png');
+ width: 55px;
+}
+
+.appointment .details .links a.billing {
+ background-image: url('../../images/icons/billing.png');
+ width: 55px;
+}
+
+.appointment .details .below_links {
+  padding: 4px;  
+  display: block;
+}
+
+.appointment .state {
+  font-weight: bold;
+  position: absolute;
+  top: 2px;
+  left: 0px;
+  text-align: right;
+  width: 290px;
+}
+
+.appointment .details .times {
+  display: block;
+  font-weight: bold;
+}
+
+.appointment .details .type {
+  padding-bottom: 4px;
+  display: block;
+  font-weight: bold;
+}
+
+.appointment .details .categories {
+  display: block;
+}
+
+.appointment .details .description {
+  display: block;
+}
+
+.details .description p {
+  margin-top: 0;
+}
+
+div.cal_header {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+div.cal_heading {
+  margin: 0 auto;
+  text-align: center;
+  width: 450px;
+}
+
+div.cal_heading a {
+  line-height: 28px;
+  font-size: 18pt;
+  font-weight: normal;
+  margin: 0 5px;
+}
+
+div.cal_heading a:hover {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+div.cal_heading a.last_month, div.cal_heading a.yesterday {
+  float: left;
+}
+
+div.cal_heading a.next_month, div.cal_heading a.tomorrow {
+  float: right;
+}
+
+div.cal_links
+{
+  margin: 5px auto 0 auto;
+  overflow: hidden;
+  width: 200px;
+  float: left;
+}
+
+div.cal_links a {
+  margin-top: 10px;
+}
+
+div.cal_links .pipe {
+  margin: 0 5px;
+}
+
+#appointment_form .duration {
+  width: 50px;
+}
+
+div.auto_complete {
+  position: absolute;
+  color: blue;
+}

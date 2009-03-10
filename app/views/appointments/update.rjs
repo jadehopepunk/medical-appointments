@@ -1,0 +1,8 @@
+if @saved
+  page.replace dom_id(@appointment), :partial => 'appointment', :object => @appointment, :locals => {:expanded => true}
+  page.call "RedBox.close"
+  page << "$('#{dom_id(@appointment)}').setAttribute('duration', #{@appointment.duration});" 
+  page << "setInitialAppointmentSize($('#{dom_id(@appointment)}'))"
+else
+  page.replace 'appointment_form', :partial => 'new_form'
+end

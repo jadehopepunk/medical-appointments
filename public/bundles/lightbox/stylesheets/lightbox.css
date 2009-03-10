@@ -1,0 +1,15 @@
+#lightbox{
+	background-color:#eee;
+	padding: 10px;
+	border-bottom: 2px solid #666;
+	border-right: 2px solid #666;
+	}
+
+#overlay{ background-image: url(/bundles/lightbox/images/overlay.png); }
+
+* html #overlay{
+	background-color: #333;
+	back\ground-color: transparent;
+	background-image: url(/bundles/lightbox/images/blank.gif);
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/bundles/lightbox/images/overlay.png", sizingMethod="scale");
+	}

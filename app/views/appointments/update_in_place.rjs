@@ -1,0 +1,5 @@
+if @saved
+  page.replace dom_id(@appointment), :partial => 'appointment', :object => @appointment, :locals => {:expanded => true}
+  page << "$('#{dom_id(@appointment)}').setAttribute('duration', #{@appointment.duration});" 
+  page << "setInitialAppointmentSize($('#{dom_id(@appointment)}'))"
+end

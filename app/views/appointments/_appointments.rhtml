@@ -1,0 +1,6 @@
+<ul class="appointments_for_column" id="appointments_provider_<%= provider.id.to_s %>">
+	<% for appointment in appointments %>
+		<%= render :partial => 'appointment', :object => appointment, :locals => {:expanded => false} %>
+	<% end %>
+</ul>					
+<% apply_behaviour 'li.appointment:click', "toggleAppointmentSize(this);" %>

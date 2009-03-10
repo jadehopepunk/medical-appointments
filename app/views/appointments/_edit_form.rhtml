@@ -1,0 +1,13 @@
+<div class="popup" id="appointment_form">
+	<h1>Edit Appointment</h1>
+	
+	<div class="contents">
+		<%= form_remote_tag :url => {:controller => 'appointments', :action => 'update', :id => @appointment} %>
+			<%= render :partial => 'form' %>
+
+			<div class="form_footer">
+				<%= link_to_close_redbox 'Cancel', :class => 'cancel' %> or <%= submit_tag "Update" %>
+			</div>
+		<%= end_form_tag %>
+	</div>
+</div>

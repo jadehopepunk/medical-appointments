@@ -1,0 +1,43 @@
+<li id="<%= dom_id(appointment) %>" class="appointment <%= expanded ? 'expanded_appointment' : 'collapsed_appointment' %>" style="top: <%= appointment.start_minute - @first_minute %>px; background-color: <%= appointment.state.colour %>">
+	<div class="state">
+		<%= link_to appointment.state.name, '#', :onclick => "Element.hide(this); Element.show('#{dom_id(appointment, 'state')}'); Event.stop(event);" %>
+		<% @appointment = appointment %>
+		<select id="<%= dom_id(appointment, 'state') %>" name="appointment[appointment_state_id]" style="display: none">
+			<%= options_from_collection_for_select AppointmentState.find(:all, :order => 'name'), 'id', 'name', appointment.state.id %>
+		</select>
+		<% apply_behaviour '#' + dom_id(appointment, 'state') + ':click', "Event.stop(event)" %>
+		<% apply_behaviour '#' + dom_id(appointment, 'state') + ':change',
+			remote_function(
+				:url => {:controller => 'appointments', :action => 'update_in_place', :id => appointment},
+				:with => "'appointment[appointment_state_id]=' + this.value"
+				) + "; Event.stop(event);"
+		%>
+	</div>
+
+	<span class="patient"><%= appointment.label %></span>
+	
+	<span class="details" style="display: none">
+		<span class="links">
+			<%= link_to_remote_redbox "edit", {:url => {:controller => 'appointments', :action => 'edit', :id => appointment}}, :class => 'edit', :onclick => "Event.stop(event)" %>
+			<%= link_to_remote "delete", {:url => {:controller => 'appointments', :action => 'destroy', :id => appointment}, :confirm => "Are you sure that you want to permanently delete this appointment for #{appointment.patient.name}?"}, :class => 'delete', :onclick => "Event.stop(event)" %>
+			<%= link_to "billing", "#", :confirm => "This is not yet implemented", :onclick => "Event.stop(event)", :class => 'billing' %>
+		</span>
+		<span class="below_links">
+			<span class="times">
+				<%= format_time appointment.start_time %> - <%= format_time appointment.end_time %>
+				(<%= appointment.duration.to_s %> minutes)
+	 		</span>
+			<span class="type">
+				Type: <%= appointment.appointment_type.name %>
+			</span>
+			<span class="categories">
+				<%= appointment.categories.collect {|c| c.name}.join ', ' %>
+			</span>
+	
+			<span class="description">
+				<%= simple_format truncate(h(appointment.comment), 100) %>
+			</span>							
+		</span>
+	</span>
+</li>
+<% apply_behaviour "##{dom_id(appointment)}", "this.setAttribute('duration', #{appointment.duration}); setInitialAppointmentSize(this)" %>

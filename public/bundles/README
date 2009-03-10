@@ -1,0 +1,5 @@
+Files in this directory are automatically generated from your Rails bundles.
+They are copied from the directories of each bundle into this directory
+each time Rails starts (server, console). Any edits you make will NOT
+persist across the next server restart; instead you should edit the files within
+the bundle directory itself (e.g. vendor/plugins/bundle_resource/bundles/*).

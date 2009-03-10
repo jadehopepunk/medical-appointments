@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name="generator" content="HTML Tidy for Mac OS X (vers 1 September 2005), see www.w3.org" />
+    <%= stylesheet_link_tag :defaults, 'redbox' %>
+	<%= stylesheet_link_tag 'associated_list' %>
+	<%= stylesheet_auto_link_tags %>
+
+    <%= javascript_include_tag :defaults, 'more_effects', 'redbox', :unobtrusive %>	
+	<%= javascript_auto_include_tags %>
+
+	<title>Appointments System</title>
+</head>
+
+<body>
+	
+	<div id="page_content">
+		<div id="header">
+			<h1>Appointments System</h1>
+			<%= link_to "Administer", '/admin', :class => 'admin' %>		
+		</div>
+		
+		<%= yield %>		
+	</div>
+
+</body>
+</html>

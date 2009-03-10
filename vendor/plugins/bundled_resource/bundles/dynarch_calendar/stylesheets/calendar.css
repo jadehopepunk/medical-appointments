@@ -1,0 +1,106 @@
+/**********
+ syncPEOPLE calendar specific styles 
+*/
+.calendar {
+	width: 80%;
+	border: 0px;
+	border-style: none;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+/*.calendar td {
+	border-style: none;
+}*/
+.calendar th {
+	border-style: none;
+}
+.calendar_top {
+	width: 100%;
+	border-style: none;
+}
+.calendar_title {
+	font-size: 14pt;
+	font-weight: bold;
+	text-align: center;
+}
+.calendar_control {
+	text-align: center;
+}
+.calendar_table {
+	width: 100%;
+	border-style: outset;
+	border-width: 3px;
+	padding-top:0px;
+	padding-right:2px;
+	padding-bottom:0px 
+	padding-left:2px;
+}
+.calendar_day_row0 {
+}
+.calendar_day_row1 {
+	background-color: #C0C0C0;
+}
+.calendar_time {
+	width: 20%;
+	text-align:right
+}
+.calendar_appointment {
+	width: 80%;
+}
+.calendar_today {
+	font-weight: bold;
+}
+.week_cell {
+	width: 25%;
+	height: 18ex;
+	vertical-align: top;
+	border: thin solid grey;
+}
+.week_row {
+}
+.month_day_in {
+	width: 13%;
+	height: 10ex;
+	vertical-align: top;
+	border: thin solid grey;
+	overflow: hidden;
+}
+.month_day_out {
+	width: 13%;
+	height: 10ex;
+	vertical-align: top;
+	border: thin solid grey;
+	background-color: #C0C0C0;
+	overflow: hidden;
+}
+.month_week {
+	width: 9%;
+	height: 10ex;
+	text-align: center;
+	border: none;
+}
+.month_row {
+}
+#appointment {
+	text-align: center;
+}
+#appoinment_edit {
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+#appoinment_edit th {
+	text-align: right;
+	vertical-align: top;
+}
+#appoinment_edit td {
+	text-align: left;
+	border-style: none;
+	vertical-align: top;
+}
+.notice {
+	border: red solid;
+	background-color:mlight-red;
+	text-align: center;
+}
